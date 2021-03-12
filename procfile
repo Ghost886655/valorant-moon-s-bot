@@ -1,0 +1,1 @@
+worket: python main.py
