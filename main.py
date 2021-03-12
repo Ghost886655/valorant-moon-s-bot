@@ -49,9 +49,11 @@ async def q(ctx):
             new_queue = discord.Embed(title="קיו חדש התחיל!",
                                       description=f" {ctx.author.mention} התחיל קיו של {size}v{size}! כתבו q++ בשביל להצטרף.",
                                       color=discord.Color.red())
+            new_queue.set_footer(text="בוט על ידי Quidy")
             player_joined = discord.Embed(title="שחקן חדש הצטרף לקיו",
                                           description=f" הצטרף לקיו{ctx.author.mention} ",
                                           color=discord.Color.red())
+            player_joined.set_footer(text="בוט על ידי Quidy")
             player_joined.add_field(name=f"**שחקנים שכבר בקיו: {len(queue)}/{size*2}**", value=f"{', '.join(queue)}")
             await ctx.send(embed=new_queue)
             return await ctx.send(embed=player_joined)
@@ -61,13 +63,14 @@ async def q(ctx):
                                           description=f" הצטרף לקיו{ctx.author.mention} ",
                                           color=discord.Color.red())
             player_joined.add_field(name=f"**שחקנים שכבר בקיו: {len(queue)}/{size*2}**", value=f"{', '.join(queue)}")
+            player_joined.set_footer(text="בוט על ידי Quidy")
             await ctx.send(embed=player_joined)
         else:
             queue.append(f"<@{ctx.author.id}>")
-
             player_joined = discord.Embed(title="שחקן חדש הצטרף לקיו",
                                           description=f" הצטרף לקיו{ctx.author.mention} ",
                                           color=discord.Color.red())
+            player_joined.set_footer(text="בוט על ידי Quidy")
             player_joined.add_field(name=f"**שחקנים שכרגע בקיו: {len(queue)}/{size*2}**", value=f"{', '.join(queue)}")
             await ctx.send(embed=player_joined)
             team_1 = random.sample(queue, size)
@@ -98,6 +101,7 @@ async def q(ctx):
             if map == 5:
                 teams.add_field(name="מפה:",value="Split")
                 teams.set_image(url="https://cdn.discordapp.com/attachments/730106200053645334/819626012178513950/9k.png")
+            teams.set_footer(text="בוט על ידי Quidy")
             await ctx.send(embed=teams)
             for x in team_1:
                 team_1.remove(x)
@@ -141,6 +145,7 @@ async def leave(ctx):
                     player_left.add_field(name=f"שחקנים שכרגע בקיו: **0/10**",
                                       value="אף אחד")
                     await ctx.send(embed=player_left)
+               player_left.set_footer(text="בוט על ידי Quidy")
         else:
             return await ctx.send("אתה לא בקיו!")
 
@@ -148,6 +153,7 @@ async def leave(ctx):
 @client.command()
 async def help(ctx):
     embed = discord.Embed(title="פקודות:", description="++q -  בשביל להצטרף לקיו\n++l - בשביל לצאת מהקיו\n++teamsize משנה את מספר השחקנים בטים - מספר")
+    embed.set_footer(text="בוט על ידי Quidy")
     await ctx.send(embed=embed)
 
 @client.command()
@@ -155,5 +161,6 @@ async def status(ctx):
     global size
     if str(ctx.channel) == "pugs":
         embed = discord.Embed(title=f"{len(queue)}/{len(size*2)}מספר שחקנים בקיו: ")
+        embed.set_footer(text="בוט על ידי Quidy")
         await ctx.send(embed=embed)
 client.run("ODE4MTUwNTkwMTMwODE1MDE2.YET4HQ.HqPQubp23r2dXVBE7G-jG1979AU")
