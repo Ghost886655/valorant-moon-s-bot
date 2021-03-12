@@ -34,7 +34,7 @@ async def teamsize(ctx, size=""):
 async def q(ctx):
     if str(ctx.channel) == "pugs" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
         if f"<@{ctx.author.id}>" in queue:
-            return await ctx.send("אתה בקיו!")
+            return await ctx.send("אתה כבר בקיו!")
         role = get(ctx.guild.roles, name="In Queue")
         await ctx.author.add_roles(role)
         channel = get(ctx.guild.voice_channels, name="🎮Custom")
