@@ -147,7 +147,7 @@ async def leave(ctx):
 
 @client.command()
 async def help(ctx):
-    embed = discord.Embed(title="פקודות:", description="++q -  בשביל להצטרף לקיו\n++l - בשביל לצאת מהקיו\n++teamsize <מספר של שחקנים בשביל לשנות את מספר השחקנים בקבוצה -  ")
+    embed = discord.Embed(title="פקודות:", description="++q -  בשביל להצטרף לקיו\n++l - בשביל לצאת מהקיו\n++teamsize מספר - משנה את מספר השחקנים בטים  ")
     await ctx.send(embed=embed)
 
 @client.command()
