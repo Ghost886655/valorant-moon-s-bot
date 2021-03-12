@@ -145,7 +145,7 @@ async def leave(ctx):
                     player_left.add_field(name=f"שחקנים שכרגע בקיו: **0/10**",
                                       value="אף אחד")
                     await ctx.send(embed=player_left)
-               player_left.set_footer(text="בוט על ידי Quidy")
+                player_left.set_footer(text="בוט על ידי Quidy")
         else:
             return await ctx.send("אתה לא בקיו!")
 
