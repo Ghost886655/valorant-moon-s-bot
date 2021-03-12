@@ -1,5 +1,5 @@
 import time
-
+import os
 import discord
 import random
 from discord.ext import commands
@@ -159,4 +159,4 @@ async def status(ctx):
     if str(ctx.channel) == "pugs":
         embed = discord.Embed(title=f"{len(queue)}/{len(size*2)}מספר שחקנים בקיו: ")
         await ctx.send(embed=embed)
-client.run("ODE4MTUwNTkwMTMwODE1MDE2.YET4HQ.HqPQubp23r2dXVBE7G-jG1979AU")
+client.run()
