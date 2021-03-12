@@ -1,4 +1,3 @@
-import time
 import os
 import discord
 import random
@@ -116,13 +115,11 @@ async def q(ctx):
                     channel = client.get_channel(818145411633905694)
                     await user.move_to(channel)
                     await user.remove_roles(role)
-                    time.sleep(0.1)
                 if str(user.id) in team_1:
                     await user.remove_roles(role)
                     channel = client.get_channel(818145622112731146)
                     await user.move_to(channel)
                     await user.remove_roles(role)
-                    time.sleep(0.1)
             queue.clear()
 
 
