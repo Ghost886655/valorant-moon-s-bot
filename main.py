@@ -2,6 +2,7 @@ import os
 import discord
 import random
 from discord.ext import commands
+import json
 from discord.utils import get
 client = commands.Bot(command_prefix='++', case_insensitive=True)
 @client.event
@@ -13,6 +14,8 @@ client.remove_command("help")
 
 queue = []
 queue_teamsize = [5]
+
+
 
 @client.command()
 async def teamsize(ctx, size=""):
@@ -34,7 +37,7 @@ async def teamsize(ctx, size=""):
 async def q(ctx):
     if str(ctx.channel) == "pugs" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
         if f"<@{ctx.author.id}>" in queue:
-            return await ctx.send("אתה כבר בקיו!")  
+            return await ctx.send("אתה כבר בקיו!")
         channel = get(ctx.guild.voice_channels, name="🎮Custom")
         if ctx.author not in channel.members:
             return await ctx.send("אתה חייב להיות ב<#818145379467919380> בשביל להיות בקיו!")
@@ -163,4 +166,11 @@ async def status(ctx):
         embed = discord.Embed(title=f"{len(queue)}/{len(size*2)}מספר שחקנים בקיו: ")
         embed.set_footer(text="בוט על ידי Quidy")
         await ctx.send(embed=embed)
+
+@client.command()
+async def h(ctx):
+    with open('mm.json', 'r') as f:
+        points = json.load(f)
+    points[ctx.author.id] = 1000
+    json.load(points, f, indent=4)
 client.run("ODE4MTUwNTkwMTMwODE1MDE2.YET4HQ.HqPQubp23r2dXVBE7G-jG1979AU")
