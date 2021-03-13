@@ -172,5 +172,6 @@ async def h(ctx):
     with open('mm.json', 'r') as f:
         points = json.load(f)
     points[ctx.author.id] = 1000
-    json.load(points, f, indent=4)
+    with open('mm.json', 'w') as f:
+        json.load(points, f, indent=4)
 client.run("ODE4MTUwNTkwMTMwODE1MDE2.YET4HQ.HqPQubp23r2dXVBE7G-jG1979AU")
