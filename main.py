@@ -34,12 +34,12 @@ async def teamsize(ctx, size=""):
 async def q(ctx):
     if str(ctx.channel) == "pugs" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
         if f"<@{ctx.author.id}>" in queue:
-            return await ctx.send("אתה כבר בקיו!")
+            return await ctx.send("אתה כבר בקיו!")\    
+        channel = get(ctx.guild.voice_channels, name="🎮Custom")
         if ctx.author not in channel.members:
             return await ctx.send("אתה חייב להיות ב<#818145379467919380> בשביל להיות בקיו!")
         role = get(ctx.guild.roles, name="In Queue")
         await ctx.author.add_roles(role)
-        channel = get(ctx.guild.voice_channels, name="🎮Custom")
         try:
             size = queue_teamsize[1]
         except IndexError:
