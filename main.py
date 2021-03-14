@@ -179,13 +179,8 @@ async def status(ctx):
         await ctx.send(embed=embed)
 
 
-@client.command()
-async def h(ctx):
-    with open('mm.json', 'r') as f:
-        points = json.load(f)
-    points["points"][ctx.author.id] = 1000
-    with open('mm.json', 'w') as f:
-        json.dump(points, f, indent=4)
-
-
+@client.event
+async def on_message(message):
+    if message.content.lower.find("discord.gg"):
+        await message.delete()
 client.run("ODE4MTUwNTkwMTMwODE1MDE2.YET4HQ.HqPQubp23r2dXVBE7G-jG1979AU")
