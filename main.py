@@ -179,10 +179,4 @@ async def status(ctx):
         await ctx.send(embed=embed)
 
 
-@client.event
-async def on_message(message):
-    message.content = message.content.lower()
-    if message.content.find("discord.gg"):
-        await message.delete()
-    client.process_commands(message)
 client.run("ODE4MTUwNTkwMTMwODE1MDE2.YET4HQ.HqPQubp23r2dXVBE7G-jG1979AU")
