@@ -183,4 +183,5 @@ async def status(ctx):
 async def on_message(message):
     if message.content.lower.find("discord.gg"):
         await message.delete()
+    client.proccess_command(message)
 client.run("ODE4MTUwNTkwMTMwODE1MDE2.YET4HQ.HqPQubp23r2dXVBE7G-jG1979AU")
