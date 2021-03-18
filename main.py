@@ -177,6 +177,11 @@ async def status(ctx):
         embed = discord.Embed(title=f"{len(queue)}/{len(size * 2)}מספר שחקנים בקיו: ")
         embed.set_footer(text="בוט על ידי Quidy")
         await ctx.send(embed=embed)
-
+                                      
+@client.event
+async def on_message(message):
+    if message.content.lower().find("discord.gg"):
+        await message.delete()
+    client.process_commands(message)
 
 client.run("ODE4MTUwNTkwMTMwODE1MDE2.YET4HQ.HqPQubp23r2dXVBE7G-jG1979AU")
