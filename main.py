@@ -182,9 +182,9 @@ async def status(ctx):
 async def on_message(message):
     try:
         a = str(message.content).replace("discrd.gg", "")
+        await message.delete()
     except Exception:
-        if message.content.find("discord.gg"):
-            await message.delete()
+        pass
     await client.process_commands(message)
 
 client.run("ODE4MTUwNTkwMTMwODE1MDE2.YET4HQ.HqPQubp23r2dXVBE7G-jG1979AU")
