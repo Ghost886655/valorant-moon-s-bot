@@ -180,8 +180,11 @@ async def status(ctx):
                                       
 @client.event
 async def on_message(message):
-    if message.content.find("discord.gg"):
-        await message.delete()
+    try:
+        a = str(message.content).replace("discrd.gg", "")
+    except Exception:
+        if message.content.find("discord.gg"):
+            await message.delete()
     await client.process_commands(message)
 
 client.run("ODE4MTUwNTkwMTMwODE1MDE2.YET4HQ.HqPQubp23r2dXVBE7G-jG1979AU")
