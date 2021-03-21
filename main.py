@@ -33,17 +33,17 @@ async def teamsize(ctx, size=""):
     except Exception or int(size) > 5 or int(size) < 1:
         return await ctx.send("מספר השחקנים בקבוצה חייב להיות מספר וקטן מ6!")
     queue_teamsize.insert(1, size)
-    await ctx.send(f" מספר השחקנים בטים השתנה ל{size} ")
+    await ctx.send(f" מספר השחקנים בטים שונה ל{size} ")
 
 
-@client.command(aliases=['queue'])
+@client.command(aliases=['queue', 'j', 'join'])
 async def q(ctx):
     if str(ctx.channel) == "pugs" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
         if f"<@{ctx.author.id}>" in queue:
             return await ctx.send("אתה כבר בקיו!")
         channel = get(ctx.guild.voice_channels, name="🎮Custom")
         if ctx.author not in channel.members:
-            return await ctx.send("אתה חייב להיות ב<#818145379467919380> בשביל להיות בקיו!")
+            return await ctx.send("אתה חייב להיות ב{channel.mention} בשביל להיות בקיו!")
         role = get(ctx.guild.roles, name="In Queue")
         await ctx.author.add_roles(role)
         try:
