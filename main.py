@@ -43,7 +43,7 @@ async def q(ctx):
             return await ctx.send("אתה כבר בקיו!")
         channel = get(ctx.guild.voice_channels, name="🎮Custom")
         if ctx.author not in channel.members:
-            return await ctx.send("אתה חייב להיות ב<818145379467919380> בשביל להיות בקיו!")
+            return await ctx.send(f"אתה חייב להיות ב{channel.mention} בשביל להיות בקיו!")
         role = get(ctx.guild.roles, name="In Queue")
         await ctx.author.add_roles(role)
         try:
