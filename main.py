@@ -171,6 +171,11 @@ async def help(ctx):
 
 
 @client.command()
+async def clear(ctx):
+    queue.clear()
+    await ctx.send("הקיו נוקה")
+
+@client.command()
 async def status(ctx):
     global size
     if str(ctx.channel) == "pugs":
