@@ -1,4 +1,3 @@
-import json
 import random
 
 import discord
@@ -35,21 +34,9 @@ class QueuesRelated(commands.Cog):
 
     @commands.command(aliases=['j', 'q'])
     async def join(self, ctx):
-        with open('stats.json', 'r') as f:
-            stats = json.load(f)
         if str(ctx.channel) == "pugs" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
             if str(ctx.author.id) in queue:
                 return await ctx.send("אתה כבר בקיו!")
-            if str(ctx.author.id) not in stats["stats"]:
-                stats["stats"][str(ctx.author.id)] = {
-                    "Username": ctx.author,
-                    "Wins": 0,
-                    "Losses": 0,
-                    "Points": 1000
-                }
-            with open('stats.json', 'w') as f:
-                json.dump(stats, f, indent=4)
-            stats["stats"][str(ctx.author.id)]["Username"] = ctx.author
             role = get(ctx.guild.roles, name="In Queue")
             await ctx.author.add_roles(role)
             try:
@@ -131,14 +118,6 @@ class QueuesRelated(commands.Cog):
                 await ctx.send(embed=teams)
                 with open('matches.json', 'r') as f:
                     match = json.load(f)
-                for i in team_1:
-                    match["matches"][matchid]["Team A"][i] = stats[i]["points"]
-                for i in queue:
-                    match["matches"][matchid]["Team B"][i] = stats[i]["points"]
-                with open("matches.json", 'w') as f:
-                    json.dump(match, f, indent=4)
-                with open('stats.json', 'w') as f:
-                    json.dump(stats, f, indent=4)
                 queue.clear()
 
     @commands.command(aliases=['l'])
