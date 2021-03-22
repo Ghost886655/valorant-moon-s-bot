@@ -1,16 +1,16 @@
 import time
-
+import os
 import discord
 from discord.ext import commands
 import selenium
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 
-web = webdriver.Chrome("chromedriver.exe")
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument('--no-sandbox')
-chrome_options.binary_location = GOOGLE_CHROME_PATH
+chrome_options.binary_location = os.eviron.get("GOOGLE_CHROME_BIN")
+web = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options = chrome_options)
 class searchCommand(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
