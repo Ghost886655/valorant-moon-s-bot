@@ -27,7 +27,7 @@ class searchCommand(commands.Cog):
             try:
                 players.find_element_by_class_name("player-row").click()
             except NoSuchElementException:
-                return await ctx.send("משתמש זה לא קיים או שלא מחובר! בדוק שנית אם כתבת ללא שגיאות.")
+                return await ctx.send("משתמש זה לא קיים או שלא מחובר לhttps://tracker.gg/valorant! בדוק שנית אם כתבת ללא שגיאות.")
             name, discriminator = player.split("#")
             web.get(f"https://tracker.gg/valorant/profile/riot/{name}%23{discriminator}/overview?playlist=competitive")
             rank = web.find_element_by_class_name("valorant-highlighted-stat__value")
