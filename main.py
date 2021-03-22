@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+import os
 bot = commands.Bot(command_prefix='++', case_insensitive=True)
 
 
@@ -14,4 +15,4 @@ bot.load_extension('cogs.QueuesRelated')
 bot.load_extension('cogs.help')
 bot.load_extension('cogs.events')
 bot.load_extension('cogs.searchCommand')
-bot.run("ODE4MTUwNTkwMTMwODE1MDE2.YET4HQ.HqPQubp23r2dXVBE7G-jG1979AU")
+bot.run(os.environ.get('TOKEN')
