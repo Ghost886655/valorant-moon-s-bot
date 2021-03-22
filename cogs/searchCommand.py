@@ -9,6 +9,8 @@ from selenium.common.exceptions import NoSuchElementException
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--disable-dev-sh-usage')
 chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 web = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options = chrome_options)
 class searchCommand(commands.Cog):
