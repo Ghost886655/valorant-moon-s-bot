@@ -6,7 +6,7 @@ import selenium
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 
-web = webdriver.Chrome("./chromedriver.exe")
+web = webdriver.Chrome("chromedriver.exe")
 class searchCommand(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
