@@ -117,7 +117,7 @@ class QueuesRelated(commands.Cog):
     @commands.command(aliases=['l'])
     async def leave(self, ctx):
         if str(ctx.channel) == "pugs" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
-            if ctx.author.id in queue:
+            if str(ctx.author.id) in queue:
                 queue.remove(str(ctx.author.id))
                 role = get(ctx.guild.roles, name="In Queue")
                 await ctx.author.remove_roles(role)
