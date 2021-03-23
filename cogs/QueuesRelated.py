@@ -109,7 +109,7 @@ class QueuesRelated(commands.Cog):
                 if map == 5:
                     teams.add_field(name="מפה:", value="Split")
                     teams.set_image(
-                        url="https://cdn.discordapp.com/attachments/730106200053645334/819626012178513950/9k.png"))
+                        url="https://cdn.discordapp.com/attachments/730106200053645334/819626012178513950/9k.png")
                 teams.set_footer(text="בוט על ידי Quidy")
                 await ctx.send(embed=teams)
                 queue.clear()
