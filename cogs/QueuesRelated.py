@@ -79,7 +79,7 @@ class QueuesRelated(commands.Cog):
                 await ctx.send(f'<@{">, <@".join(queue)}')
                 for i in team_1:
                     queue.remove(i)
-                teams = discord.Embed(title="קבוצה A", description='> , <@'.join(team_1) + "<", inline=False,
+                teams = discord.Embed(title="קבוצה A", description=f">@{'> , <@'.join(team_1)}>", inline=False,
                                       color=discord.Color.red())
                 teams.add_field(name="קבוצה B", value=f"<@{'> , <@'.join(queue)}>", inline=False)
                 defenders_or_attackers = random.randint(0, 1)
