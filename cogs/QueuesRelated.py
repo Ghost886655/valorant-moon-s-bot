@@ -56,8 +56,6 @@ class QueuesRelated(commands.Cog):
                 player_joined.add_field(name=f"**שחקנים שכבר בקיו: {len(queue)}/{size * 2}**",
                                         value=f"<@{'>, <@'.join(queue)}>")
                 await ctx.send(embed=new_queue)
-                with open('stats.json', 'w') as f:
-                    json.dump(stats, f, indent=4)
                 return await ctx.send(embed=player_joined)
             if len(queue) < size * 2 - 1:
                 queue.append(str(ctx.author.id))
@@ -111,13 +109,9 @@ class QueuesRelated(commands.Cog):
                 if map == 5:
                     teams.add_field(name="מפה:", value="Split")
                     teams.set_image(
-                        url="https://cdn.discordapp.com/attachments/730106200053645334/819626012178513950/9k.png")
-                matchid = f"#{random.randint(1, 1000)}"
-                teams.add_field(name="ID: ",value=matchid)
+                        url="https://cdn.discordapp.com/attachments/730106200053645334/819626012178513950/9k.png"))
                 teams.set_footer(text="בוט על ידי Quidy")
                 await ctx.send(embed=teams)
-                with open('matches.json', 'r') as f:
-                    match = json.load(f)
                 queue.clear()
 
     @commands.command(aliases=['l'])
