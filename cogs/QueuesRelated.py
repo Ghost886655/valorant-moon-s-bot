@@ -63,7 +63,7 @@ class QueuesRelated(commands.Cog):
                                               description=f" הצטרף לקיו{ctx.author.mention} ",
                                               color=discord.Color.red())
                 player_joined.add_field(name=f"**שחקנים שכבר בקיו: {len(queue)}/{size * 2}**",
-                                        value=f"<@{'> , <@'.join(queue)}")
+                                        value=f"<@{'> , <@'.join(queue)}>")
                 player_joined.set_footer(text="בוט על ידי Quidy")
                 await ctx.send(embed=player_joined)
             else:
@@ -73,15 +73,15 @@ class QueuesRelated(commands.Cog):
                                               color=discord.Color.red())
                 player_joined.set_footer(text="בוט על ידי Quidy")
                 player_joined.add_field(name=f"**שחקנים שכרגע בקיו: {len(queue)}/{size * 2}**",
-                                        value=f"<@{'> , <@'.join(queue)}")
+                                        value=f"<@{'> , <@'.join(queue)}>")
                 await ctx.send(embed=player_joined)
                 team_1 = random.sample(queue, size)
                 await ctx.send(f'<@{">, <@".join(queue)}')
                 for i in team_1:
                     queue.remove(i)
-                teams = discord.Embed(title="קבוצה A", description='> , <@'.join(team_1), inline=False,
+                teams = discord.Embed(title="קבוצה A", description='> , <@'.join(team_1) + "<", inline=False,
                                       color=discord.Color.red())
-                teams.add_field(name="קבוצה B", value=f"<@{'> , <@'.join(queue)}", inline=False)
+                teams.add_field(name="קבוצה B", value=f"<@{'> , <@'.join(queue)}>", inline=False)
                 defenders_or_attackers = random.randint(0, 1)
                 if defenders_or_attackers == 0:
                     teams.add_field(name="קבוצה A:", value="מתחילים כAttackers", inline=False)
@@ -126,7 +126,7 @@ class QueuesRelated(commands.Cog):
                                             color=discord.Color.red())
                 if len(queue) != 0:
                     player_left.add_field(name=f"שחקנים שכרגע בקיו: **{len(queue)}/10**",
-                                          value=f"<@{'> , <@'.join(queue)}")
+                                          value=f"<@{'> , <@'.join(queue)}>")
                     await ctx.send(embed=player_left)
                 else:
                     player_left.add_field(name=f"שחקנים שכרגע בקיו: **0/10**",
