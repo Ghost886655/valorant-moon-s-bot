@@ -6,7 +6,6 @@ from discord.utils import get
 
 queue = []
 queue_teamsize = [5]
-players_and_points = []
 
 bot = commands.Bot(command_prefix="++", case_insensitive=True)
 
@@ -56,6 +55,7 @@ class QueuesRelated(commands.Cog):
                 player_joined.add_field(name=f"**שחקנים שכבר בקיו: {len(queue)}/{size * 2}**",
                                         value=f"<@{'>, <@'.join(queue)}>")
                 await ctx.send(embed=new_queue)
+                print(queue)
                 return await ctx.send(embed=player_joined)
             if len(queue) < size * 2 - 1:
                 queue.append(str(ctx.author.id))
