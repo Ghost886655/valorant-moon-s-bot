@@ -36,8 +36,6 @@ class QueuesRelated(commands.Cog):
         if str(ctx.channel) == "pugs" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
             if str(ctx.author.id) in queue:
                 return await ctx.send("אתה כבר בקיו!")
-            role = get(ctx.guild.roles, name="In Queue")
-            await ctx.author.add_roles(role)
             try:
                 size = queue_teamsize[1]
             except IndexError:
@@ -118,9 +116,7 @@ class QueuesRelated(commands.Cog):
     async def leave(self, ctx):
         if str(ctx.channel) == "pugs" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
             if str(ctx.author.id) in queue:
-                queue.remove(str(ctx.author.id))
-                role = get(ctx.guild.roles, name="In Queue")
-                await ctx.author.remove_roles(role)
+                queue.remove(str(ctx.author.id)
                 player_left = discord.Embed(title="שחקן יצא מהקיו",
                                             description=f"{ctx.author.mention} יצא מהקיו ",
                                             color=discord.Color.red())
