@@ -5,7 +5,7 @@ from discord.ext import commands
 import selenium
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
-
+from selenium.common.exceptions import WebDriverException
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument('--headless')
@@ -41,6 +41,7 @@ class searchCommand(commands.Cog):
         stats.set_thumbnail(url=avatar_url)
         await ctx.send(embed=stats)
         web.close()
+
     @search.error
     async def search_error(self, ctx, error):
         if isinstance(error, WebDriverException):
