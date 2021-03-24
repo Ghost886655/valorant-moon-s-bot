@@ -31,6 +31,7 @@ class searchCommand(commands.Cog):
         except NoSuchElementException:
             return await ctx.send(
                 "משתמש זה לא קיים או שלא מחובר לhttps://tracker.gg/valorant בדוק שנית אם כתבת ללא שגיאות.")
+        print(wen.current_link)
         time.sleep(0.5)
         stats_on_page = web.find_elements_by_class_name("valorant-highlighted-stat__value")
         rank = stats_on_page[0].text
