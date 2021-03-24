@@ -45,7 +45,7 @@ class searchCommand(commands.Cog):
         stats.add_field(name="KAD:", value=KAD, inline=False)
         main_gun = web.find_element_by_class_name("weapon__info")
         main_gun_image = main_gun.find_element_by_tag_name("img").get_attribute("src")
-        stats.add_field(name="נשק אהוב:", value = main_gun.text, value=discord.Color.red())
+        stats.add_field(name="נשק אהוב:", value = main_gun.text)
         avatar = web.find_element_by_tag_name("image")
         avatar_url = avatar.get_attribute("href")
         stats.set_thumbnail(url=avatar_url)
