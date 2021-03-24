@@ -116,7 +116,7 @@ class QueuesRelated(commands.Cog):
     async def leave(self, ctx):
         if str(ctx.channel) == "pugs" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
             if str(ctx.author.id) in queue:
-                queue.remove(str(ctx.author.id)
+                queue.remove(str(ctx.author.id))
                 player_left = discord.Embed(title="שחקן יצא מהקיו",
                                             description=f"{ctx.author.mention} יצא מהקיו ",
                                             color=discord.Color.red())
