@@ -23,16 +23,13 @@ class searchCommand(commands.Cog):
         web.get("https://tracker.gg/valorant")
         web.find_element_by_tag_name("input").send_keys(player)
         time.sleep(1)
-        players = web.find_element_by_class_name("players")
         try:
             name = web.find_element_by_class_name("trn-ign__username").text
             descriminator = web.find_element_by_class_name("trn-ign__discriminator").text
-            players.find_element_by_class_name("player-row").click()
+            web.get(f"https://tracker.gg/valorant/profile/riot/{name}%23{descriminator.replace('#', '')}/overview?playlist=competitive")
         except NoSuchElementException:
             return await ctx.send(
                 "משתמש זה לא קיים או שלא מחובר לhttps://tracker.gg/valorant בדוק שנית אם כתבת ללא שגיאות.")
-        time.sleep(2)
-        print(web.current_url)
         stats_on_page = web.find_elements_by_class_name("valorant-highlighted-stat__value")
         rank = stats_on_page[0].text
         KAD = stats_on_page[1].text
