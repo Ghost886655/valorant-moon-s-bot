@@ -30,11 +30,14 @@ class searchCommand(commands.Cog):
                 return await ctx.send("משתמש זה לא קיים או שלא מחובר לhttps://tracker.gg/valorant בדוק שנית אם כתבת ללא שגיאות.")
             name, discriminator = player.split("#")
             web.get(f"https://tracker.gg/valorant/profile/riot/{name}%23{discriminator}/overview?playlist=competitive")
-            rank = web.find_element_by_class_name("valorant-highlighted-stat__value")
+            rank = web.find_element_by_class_name("valorant-highlighted-stat__value").text()
             name = web.find_element_by_class_name("trn-ign__username").text
             discriminator = web.find_element_by_class_name("trn-ign__discriminator").text
+            KAD = web.find_elements_by_class_name("valorant-highlighted-stat__value")
+            KAD = KAD[1].text
             stats = discord.Embed(title="שם:", description=name + discriminator,color=discord.Color.red())
-            stats.add_field(name="ראנק:", value=rank.text)
+            stats.add_field(name="ראנק:", value=rank)
+            stats.add_field(name="KAD:", value=KAD)
             avatar = web.find_element_by_tag_name("image")
             avatar_url = avatar.get_attribute("href")
             stats.set_thumbnail(url=avatar_url)
