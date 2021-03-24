@@ -41,6 +41,10 @@ class searchCommand(commands.Cog):
         stats.set_thumbnail(url=avatar_url)
         await ctx.send(embed=stats)
         web.close()
+    @search.error
+    async def search_error(self, ctx, error):
+        if isinstance(error, WebDriverException):
+            pass
 
 def setup(bot):
     bot.add_cog(searchCommand(bot))
