@@ -34,7 +34,7 @@ class searchCommand(commands.Cog):
                 "משתמש זה לא קיים או שלא מחובר לhttps://tracker.gg/valorant בדוק שנית אם כתבת ללא שגיאות.")
         try:
             web.find_element_by_class_name("lead")
-            await ctx.send("המשתמש נמצא אך הוא פרטי. הירשם לhttps://tracker.gg/valorant כדי לראות את הסטטים שלו")
+           return await ctx.send("המשתמש נמצא אך הוא פרטי. הירשם לhttps://tracker.gg/valorant כדי לראות את הסטטים שלו")
         except NoSuchElementException:
             pass
         stats_on_page = web.find_elements_by_class_name("valorant-highlighted-stat__value")
