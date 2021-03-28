@@ -33,8 +33,12 @@ class searchCommand(commands.Cog):
             return await ctx.send(
                 "משתמש זה לא קיים או שלא מחובר לhttps://tracker.gg/valorant בדוק שנית אם כתבת ללא שגיאות.")
         stats_on_page = web.find_elements_by_class_name("valorant-highlighted-stat__value")
-        rank = stats_on_page[0].text
-        KAD = stats_on_page[1].text
+        try:
+            rank = stats_on_page[0].text
+            KAD = stats_on_page[1].text
+        except IndexError:
+                        return await ctx.send(
+                "משתמש זה לא קיים או שלא מחובר לhttps://tracker.gg/valorant בדוק שנית אם כתבת ללא שגיאות.")
         stats = discord.Embed(title="שם:", description=name + descriminator, color=discord.Color.red())
         stats.add_field(name="ראנק:", value=rank, inline=False)
         stats.add_field(name="KAD:", value=KAD, inline=False)
