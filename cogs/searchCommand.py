@@ -32,11 +32,6 @@ class searchCommand(commands.Cog):
         except NoSuchElementException:
             return await ctx.send(
                 "משתמש זה לא קיים או שלא מחובר לhttps://tracker.gg/valorant בדוק שנית אם כתבת ללא שגיאות.")
-        try:
-            web.find_element_by_class_name("lead")
-            return await ctx.send("המשתמש נמצא אך הוא פרטי. הירשם לhttps://tracker.gg/valorant כדי לראות את הסטטים שלו")
-        except NoSuchElementException:
-            pass
         stats_on_page = web.find_elements_by_class_name("valorant-highlighted-stat__value")
         rank = stats_on_page[0].text
         KAD = stats_on_page[1].text
