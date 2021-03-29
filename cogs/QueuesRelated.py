@@ -121,6 +121,7 @@ class QueuesRelated(commands.Cog):
                 player_left = discord.Embed(title="שחקן יצא מהקיו",
                                             description=f"{ctx.author.mention} יצא מהקיו ",
                                             color=discord.Color.red())
+                player_left.set_footer(text="בוט על ידי Quidy")
                 if len(queue) != 0:
                     player_left.add_field(name=f"שחקנים שכרגע בקיו: **{len(queue)}/10**",
                                           value=f"<@{'> , <@'.join(queue)}>")
@@ -129,7 +130,6 @@ class QueuesRelated(commands.Cog):
                     player_left.add_field(name=f"שחקנים שכרגע בקיו: **0/10**",
                                           value="אף אחד")
                     await ctx.send(embed=player_left)
-                player_left.set_footer(text="בוט על ידי Quidy")
             else:
                 return await ctx.send("אתה לא בקיו!")
 
