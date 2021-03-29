@@ -20,7 +20,7 @@ class searchCommand(commands.Cog):
     @commands.command()
     async def search(self, ctx, *, player=""):
         if player == "" or "#" not in player:
-            return await ctx.send("שימוש לא נכון בפקודה! שימוש נכון: שחקן search++")
+            return await ctx.send("שימוש לא נכון בפקודה! שימוש נכון: שחקן search++\nלדוגמא: ++search Q B O S T#GHOST")
         await ctx.send("מחפש...")
         web.get("https://tracker.gg/valorant")
         web.find_element_by_tag_name("input").send_keys(player)
