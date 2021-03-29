@@ -18,22 +18,23 @@ class QueuesRelated(commands.Cog):
 
     @commands.command(aliases=['ts'])
     async def teamsize(self, ctx, size=""):
-        try:
-            teamsize = queue_teamsize[1]
-        except Exception:
-            teamsize = queue_teamsize[0]
-        if size == "":
-            return await ctx.send(f"מספר השחקנים בקבוצה כרגע הוא {teamsize}")
-        try:
-            size = int(size)
-        except Exception or int(size) > 5 or int(size) < 1:
-            return await ctx.send("מספר השחקנים בקבוצה חייב להיות מספר וקטן מ6!")
-        queue_teamsize.insert(1, size)
-        await ctx.send(f" מספר השחקנים בטים השתנה ל{size} ")
+        if str(ctx.channel) == "🟣-cutom-alart":
+            try:
+                teamsize = queue_teamsize[1]
+            except Exception:
+                teamsize = queue_teamsize[0]
+            if size == "":
+                return await ctx.send(f"מספר השחקנים בקבוצה כרגע הוא {teamsize}")
+            try:
+                size = int(size)
+            except Exception or int(size) > 5 or int(size) < 1:
+                return await ctx.send("מספר השחקנים בקבוצה חייב להיות מספר וקטן מ6!")
+            queue_teamsize.insert(1, size)
+            await ctx.send(f" מספר השחקנים בטים השתנה ל{size} ")
 
     @commands.command(aliases=['j', 'q'])
     async def join(self, ctx):
-        if str(ctx.channel) == "pugs" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
+        if str(ctx.channel) == "🟣-cutom-alart" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
             if str(ctx.author.id) in queue:
                 return await ctx.send("אתה כבר בקיו!")
             try:
@@ -114,7 +115,7 @@ class QueuesRelated(commands.Cog):
 
     @commands.command(aliases=['l'])
     async def leave(self, ctx):
-        if str(ctx.channel) == "pugs" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
+        if str(ctx.channel) == "🟣-cutom-alart" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
             if str(ctx.author.id) in queue:
                 queue.remove(str(ctx.author.id))
                 player_left = discord.Embed(title="שחקן יצא מהקיו",
