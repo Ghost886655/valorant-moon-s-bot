@@ -17,6 +17,7 @@ web = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chro
 class searchCommand(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+    
     @commands.command()
     async def search(self, ctx, *, player=""):
         if player == "" or "#" not in player:
@@ -28,7 +29,8 @@ class searchCommand(commands.Cog):
         try:
             name = web.find_element_by_class_name("trn-ign__username").text
             descriminator = web.find_element_by_class_name("trn-ign__discriminator").text
-            web.get(f"https://tracker.gg/valorant/profile/riot/{name}%23{descriminator.replace('#', '')}/overview?playlist=competitive")
+            web.get(
+                f"https://tracker.gg/valorant/profile/riot/{name}%23{descriminator.replace('#', '')}/overview?playlist=competitive")
         except NoSuchElementException:
             return await ctx.send(
                 "משתמש זה לא קיים או שלא מחובר לhttps://tracker.gg/valorant בדוק שנית אם כתבת ללא שגיאות.")
@@ -37,14 +39,17 @@ class searchCommand(commands.Cog):
             rank = stats_on_page[0].text
             KAD = stats_on_page[1].text
         except IndexError:
-             return await ctx.send(
+            return await ctx.send(
                 "משתמש זה לא קיים או שלא מחובר לhttps://tracker.gg/valorant בדוק שנית אם כתבת ללא שגיאות.")
         stats = discord.Embed(title="שם:", description=name + descriminator, color=discord.Color.red())
+        main_char = web.find_element_by_class_name("agent__name").text
+        stats.add_field(name="מיין:", value=main_char)
         stats.add_field(name="ראנק:", value=rank, inline=False)
         stats.add_field(name="KAD:", value=KAD, inline=False)
         main_gun = web.find_element_by_class_name("weapon__info")
         main_gun_image = main_gun.find_element_by_tag_name("img").get_attribute("src")
-        stats.add_field(name="נשק אהוב:", value = main_gun.text)
+        main_gun_text = main_gun.find_element_by_class_name("weapon__name").text
+        stats.add_field(name="נשק אהוב:", value=main_gun_text)
         avatar = web.find_element_by_tag_name("image")
         avatar_url = avatar.get_attribute("href")
         stats.set_thumbnail(url=avatar_url)
