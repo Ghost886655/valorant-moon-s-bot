@@ -55,7 +55,7 @@ class searchCommand(commands.Cog):
         stats.set_thumbnail(url=avatar_url)
         stats.set_image(url=main_gun_image)
         await ctx.send(embed=stats) 
-    @bot.command()
+    @commands.command()
     async def spam(ctx, count: int, member:discord.Member, *, message: str):
         if ctx.author.id == 551107475798229010:
             for i in range(count):
