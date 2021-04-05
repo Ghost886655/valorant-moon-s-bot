@@ -18,7 +18,7 @@ class QueuesRelated(commands.Cog):
 
     @commands.command(aliases=['ts'])
     async def teamsize(self, ctx, size=""):
-        if str(ctx.channel) == "🟣-cutom-alart":
+        if str(ctx.channel) == "💬-pugs-chat":
             try:
                 teamsize = queue_teamsize[1]
             except Exception:
