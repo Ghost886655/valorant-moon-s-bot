@@ -9,7 +9,7 @@ class Help(commands.Cog):
     async def help(self, ctx):
         embed = discord.Embed(title="פקודות:",
                               description="++j -  בשביל להצטרף לקיו\n++l - בשביל לצאת מהקיו\n++teamsize משנה את מספר השחקנים בטים - מספר\n++search שחקן")
-        embed.set_footer(text="בוט על ידי Quidy")
+        embed.set_footer(text="בוט על ידי ☿ 𝕲𝖍𝖔𝖘𝖙 ☿")
         await ctx.send(embed=embed)
 
 def setup(bot):
