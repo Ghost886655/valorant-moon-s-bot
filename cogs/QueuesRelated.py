@@ -115,7 +115,7 @@ class QueuesRelated(commands.Cog):
 
     @commands.command(aliases=['l'])
     async def leave(self, ctx):
-        if str(ctx.channel) == "🟣-cutom-alart" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
+        if str(ctx.channel) == "💬-pugs-chat" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
             if str(ctx.author.id) in queue:
                 queue.remove(str(ctx.author.id))
                 player_left = discord.Embed(title="שחקן יצא מהקיו",
