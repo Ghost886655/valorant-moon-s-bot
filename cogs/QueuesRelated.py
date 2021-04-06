@@ -46,11 +46,11 @@ class QueuesRelated(commands.Cog):
                 new_queue = discord.Embed(title="קיו חדש התחיל!",
                                           description=f" {ctx.author.mention} התחיל קיו של {size}v{size}! כתבו q++ בשביל להצטרף.",
                                           color=discord.Color.red())
-                new_queue.set_footer(text="בוט על ידי Quidy")
+                new_queue.set_footer(text="בוט על ידי ☿ 𝕲𝖍𝖔𝖘𝖙 ☿")
                 player_joined = discord.Embed(title="שחקן חדש הצטרף לקיו",
                                               description=f" הצטרף לקיו{ctx.author.mention} ",
                                               color=discord.Color.red())
-                player_joined.set_footer(text="בוט על ידי Quidy")
+                player_joined.set_footer(text="בוט על ידי ☿ 𝕲𝖍𝖔𝖘𝖙 ☿")
                 player_joined.add_field(name=f"**שחקנים שכבר בקיו: {len(queue)}/{size * 2}**",
                                         value=f"<@{'>, <@'.join(queue)}>")
                 await ctx.send(embed=new_queue)
@@ -63,14 +63,14 @@ class QueuesRelated(commands.Cog):
                                               color=discord.Color.red())
                 player_joined.add_field(name=f"**שחקנים שכבר בקיו: {len(queue)}/{size * 2}**",
                                         value=f"<@{'> , <@'.join(queue)}>")
-                player_joined.set_footer(text="בוט על ידי Quidy")
+                player_joined.set_footer(text="בוט על ידי ☿ 𝕲𝖍𝖔𝖘𝖙 ☿")
                 await ctx.send(embed=player_joined)
             else:
                 queue.append(str(ctx.author.id))
                 player_joined = discord.Embed(title="שחקן חדש הצטרף לקיו",
                                               description=f" הצטרף לקיו{ctx.author.mention} ",
                                               color=discord.Color.red())
-                player_joined.set_footer(text="בוט על ידי Quidy")
+                player_joined.set_footer(text="בוט על ידי ☿ 𝕲𝖍𝖔𝖘𝖙 ☿")
                 player_joined.add_field(name=f"**שחקנים שכרגע בקיו: {len(queue)}/{size * 2}**",
                                         value=f"<@{'> , <@'.join(queue)}>")
                 await ctx.send(embed=player_joined)
@@ -109,7 +109,7 @@ class QueuesRelated(commands.Cog):
                     teams.add_field(name="מפה:", value="Split")
                     teams.set_image(
                         url="https://cdn.discordapp.com/attachments/730106200053645334/819626012178513950/9k.png")
-                teams.set_footer(text="בוט על ידי Quidy")
+                teams.set_footer(text="בוט על ידי ☿ 𝕲𝖍𝖔𝖘𝖙 ☿")
                 await ctx.send(embed=teams)
                 queue.clear()
 
@@ -121,7 +121,7 @@ class QueuesRelated(commands.Cog):
                 player_left = discord.Embed(title="שחקן יצא מהקיו",
                                             description=f"{ctx.author.mention} יצא מהקיו ",
                                             color=discord.Color.red())
-                player_left.set_footer(text="בוט על ידי Quidy")
+                player_left.set_footer(text="בוט על ידי ☿ 𝕲𝖍𝖔𝖘𝖙 ☿")
                 if len(queue) != 0:
                     player_left.add_field(name=f"שחקנים שכרגע בקיו: **{len(queue)}/10**",
                                           value=f"<@{'> , <@'.join(queue)}>")
@@ -140,7 +140,7 @@ class QueuesRelated(commands.Cog):
         except Exception:
             size = queue_teamsize[0]
         embed = discord.Embed(title=f"מספר שחקנים בקיו: {len(queue)}/{(size * 2)} ")
-        embed.set_footer(text="בוט על ידי Quidy")
+        embed.set_footer(text="בוט על ידי ☿ 𝕲𝖍𝖔𝖘𝖙 ☿")
         await ctx.send(embed=embed)
 
 def setup(bot):
