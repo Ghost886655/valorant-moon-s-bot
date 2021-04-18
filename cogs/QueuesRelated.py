@@ -34,7 +34,6 @@ class QueuesRelated(commands.Cog):
 
     @commands.command(aliases=['j', 'q'])
     async def join(self, ctx):
-        print(1)
         if str(ctx.channel) == "🎮-costum-alerts" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
             if str(ctx.author.id) in queue:
                 return await ctx.send("אתה כבר בקיו!")
