@@ -18,7 +18,7 @@ class QueuesRelated(commands.Cog):
 
     @commands.command(aliases=['ts'])
     async def teamsize(self, ctx, size=""):
-        if str(ctx.channel) == "🎮-costum-alerts":
+        if str(ctx.channel) == "🛡-costum-chat":
             try:
                 teamsize = queue_teamsize[1]
             except Exception:
@@ -34,7 +34,7 @@ class QueuesRelated(commands.Cog):
 
     @commands.command(aliases=['j', 'q'])
     async def join(self, ctx):
-        if str(ctx.channel) == "🎮-costum-alerts" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
+        if str(ctx.channel) == "🛡-costum-chat" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
             if str(ctx.author.id) in queue:
                 return await ctx.send("אתה כבר בקיו!")
             try:
@@ -115,7 +115,7 @@ class QueuesRelated(commands.Cog):
 
     @commands.command(aliases=['l'])
     async def leave(self, ctx):
-        if str(ctx.channel) == "🎮-costum-alerts" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
+        if str(ctx.channel) == "🛡-costum-chat" or str(ctx.channel) == "fixing-bugs" or str(ctx.channel) == "bot-commands":
             if str(ctx.author.id) in queue:
                 queue.remove(str(ctx.author.id))
                 player_left = discord.Embed(title="שחקן יצא מהקיו",
